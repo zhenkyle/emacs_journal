@@ -3,7 +3,8 @@ title = "Change Color"
 date = 2020-01-10
 +++
 
-I followed this interesting video blog: [Switching to GNU Emacs][1], to change my Emacs's color to [Dracula theme][2], now I feel better. My Emacs looks more like a morden text editor now.
+Followed this interesting video blog: [Switching to GNU Emacs][1], I changed my Emacs's color to [Dracula theme][2], my Emacs looks more like a morden text editor now.
+
 # What is Dracula theme
 Dracula theme is A dark theme for Emacs.
 
