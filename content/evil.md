@@ -3,7 +3,7 @@ title = "Evil Mode"
 date = 2020-01-10
 +++
 
-As a Emacs beginner, I would like to learn Emacs's key bindings while change to vim's key bindings occasionally when I get stuck. So this is my settings for now, when I have deeper understanding of how Emacs & evil-mode works latter, I maybe change this settings for more typing effeciency.
+As an Emacs beginner, I would like to learn Emacs's key bindings while change to vim's key bindings occasionally when I get stuck. So this is my settings for now, when I have deeper understanding of how Emacs & evil-mode works latter, I maybe change this settings for more typing effeciency.
 
 # What is Evil Mode
 Evil Mode is the extensible vi layer for Emacs. If you already known vim's key bindings, you would likely want to try it in Emacs. Home Page is [Here][0].
@@ -14,9 +14,11 @@ Install `evil` package from MELPA. See the [official documentation][1] for insta
 # Basic Usage
 The goal is to enable Evil Mode, but set default state to `emacs` state.
 
+TODO: Using Customize to set evil-default-state
+
 Add these lines to your Emacs's `init.el`.
 ```
-;; add this line below (custom-set-variables
+;; below (custom-set-variables
  '(evil-default-state (quote emacs))
 ;; Enable Evil
 (evil-mode 1)
