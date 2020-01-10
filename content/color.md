@@ -6,7 +6,7 @@ date = 2020-01-10
 Followed this interesting video blog: [Switching to GNU Emacs][1], I changed my Emacs's color to [Dracula theme][2], my Emacs looks more like a morden text editor now.
 
 # What is Dracula theme
-Dracula theme is A dark theme for Emacs.
+Dracula theme is a dark theme for Emacs.
 
 # Install
 Install `dracula-theme` from MELPA
@@ -32,8 +32,11 @@ As I learned from [Switching to GNU Emacs][1], I can further tweak Emacs to have
 Goto menubar: `Options` - `Show/Hide` - `Line Number for All Lines`, check `Relative Line Numbers`.
 
 ## Hide menubar
+TODO
 
 ## Hide toolbar
+TODO
+
 ## Hide scorllbar
 TODO
 
