@@ -27,8 +27,7 @@ taxonomies = [
 hyde_theme = "theme-base-09"
 hyde_links = [
     {url = "https://github.com/zhenkyle/emacs_journal", name = "Edit"},
-    {url = "https://travis-ci.org/zhenkyle/emacs_journal", name = "Build state"},
-    {url = "https://github.com/getzola/hyde", name = "Made by Zola with Hyde theme"},
+    {url = "https://travis-ci.org/zhenkyle/emacs_journal", name = "Travis"},
 ]
 # END for hyde
 
