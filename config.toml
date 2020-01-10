@@ -28,7 +28,7 @@ hyde_theme = "theme-base-09"
 hyde_links = [
     {url = "https://www.getzola.org/", name = "Zola blog"},
     {url = "https://github.com/getzola/hyde", name = "Hyde theme"},
-    {url = "https://github.com/zhenkyle/emacs_journal"}
+    {url = "https://github.com/zhenkyle/emacs_journal", name = "Edit"},
 ]
 # END for hyde
 
