@@ -27,7 +27,7 @@ taxonomies = [
 hyde_theme = "theme-base-09"
 hyde_links = [
     {url = "https://github.com/zhenkyle/emacs_journal", name = "Edit"},
-    {url = "https://travis-ci.org/zhenkyle/emacs_journal", name = "CI"},
+    {url = "https://travis-ci.org/zhenkyle/emacs_journal", name = "CI status"},
 ]
 # END for hyde
 
