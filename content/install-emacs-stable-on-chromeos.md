@@ -11,6 +11,8 @@ However, As of Chrome OS 79, the Crostini Linux enviroment is still at `stretch`
 
 Why I can't get ease with `emacs25` on Debian Stretch is that When I install `evil-mode` via MELPA, I get some error saying `undo-tree` can not be installed. It seems like it is related to some BUG in Emacs 25, but has been fixed in Emacs 26 which is the stable version now. So Emacs 26 is what I needed.
 
+The first thing I tried is install Emacs 26.3 via flatpak, although I can get emcas26 up and runinng, I can't do any useful thing with it, the `m-x term` is a shell inside flatpak container, which is not I want. I think install Emcas in container is the wrong way. So what I have to do is to install it as a normal application.
+
 I spend some time searching for prebuilt stable Emacs (26.3) on Debian oldstable (stretch) on EmacsWiki and Debian sites without lucky, so that means I have to build my Emacs 26.3 myself. There are 3 ways to do this, orderd by recommendations priority.
 
 1. use Debian backport method if the version of software required is in newer version of Debian
