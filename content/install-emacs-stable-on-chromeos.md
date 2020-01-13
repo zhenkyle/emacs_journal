@@ -3,7 +3,7 @@ title = "Install Emacs stable release on Chrome OS"
 date = 2020-01-11T15:00:00Z
 +++
 
-What I want is to install the stable version of Emacs on my ChromeBook.The most recent stable version of Emacs is 26.3 now, the most recent version of Chrome OS is 79 now, recent Debian version on Chrome OS 79's Linux enviroment is Strech now.
+What I want is to install the stable version of Emacs on my Chromebook. After all, my Chromebook is on stable channel. The most recent stable version of Emacs is 26.3 now, the most recent version of Chrome OS is 79 now, recent Debian version on Chrome OS 79's Linux enviroment is Strech now.
 
 Install Emacs stable release on Arch Linux is a piece of cake, because Arch linux is a rolling release, you are always up to update.
 Install Emacs on Debian/Ubuntu unstable is also easy, there are lots of prebuild newer version packages you can install directliy. However, As Chrome OS 79, the Crostini Linux enviroment is still at `stretch` , the `oldstable` release, install stable release of Emacs on Chrome OS require some extra work.
@@ -62,7 +62,7 @@ apt install ./emacs_*_*.deb ./emacs-common_*_*.deb \
 	Note: strech-backport channel's fonts is newer than strech channel's.
 
 
-After all these steps, I can happily play with emacs stable release on my ChromeBook now :-)
+After all these steps, I can happily play with emacs stable release on my Chromebook now :-)
 
 [1]: https://wiki.debian.org/SimpleBackportCreation
 
