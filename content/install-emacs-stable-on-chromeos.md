@@ -3,14 +3,16 @@ title = "Install Emacs stable release on Chrome OS"
 date = 2020-01-11T15:00:00Z
 +++
 
-What I want is to install the stable version of Emacs on my ChromeBook.The most recent stable version of Emacs is 26.3 now. The most recent Debian version on Chrome OS's Linux enviroment is Strech now.
+What I want is to install the stable version of Emacs on my ChromeBook.The most recent stable version of Emacs is 26.3 now, the most recent version of Chrome OS is 79 now, recent Debian version on Chrome OS 79's Linux enviroment is Strech now.
 
-Install Emacs 26.3 on Arch Linux is a piece of cake, because Arch linux is a rolling release.
-Install Emacs on Debian/Ubuntu unstable release is also easy, because there are prebuild package you can install derectliy. However, As Chrome OS 79, the Crostini Linux enviroment is still at `stretch` , the `oldstable` release, install stable release of Emacs on Chrome OS require some extra work.
+Install Emacs stable release on Arch Linux is a piece of cake, because Arch linux is a rolling release, you are always up to update.
+Install Emacs on Debian/Ubuntu unstable is also easy, there are lots of prebuild newer version packages you can install directliy. However, As Chrome OS 79, the Crostini Linux enviroment is still at `stretch` , the `oldstable` release, install stable release of Emacs on Chrome OS require some extra work.
 
-I spend some time to search for EmacsWiki and Debian sites for stable release of Emacs (26.3) for oldstable release of Debian (stretch) without lucky, so that means I have to build my emacs 26.3 for stretch myself. There are 3 ways to do this, orderd by recommendations priority.
+I spend some time searching for prebuilt stable Emacs (26.3) on Debian oldstable (stretch) on EmacsWiki and Debian sites without lucky, so that means I have to build my Emacs 26.3 myself. There are 3 ways to do this, orderd by recommendations priority.
 
 1. use Debian backport method if the version of software required is in newer version of Debian
+    Debian Wiki says this way won't mess up with your package system.
+
 2. use Ubuntu PPA port to Debian method if the version of required is in Ubuntu PPA
 3. build directly from sources
 
