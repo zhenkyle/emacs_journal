@@ -3,10 +3,12 @@ title = "Install Emacs stable release on Chrome OS"
 date = 2020-01-11T15:00:00Z
 +++
 
-What I want is to install the stable version of Emacs on my Chromebook. After all, my Chromebook is on stable channel. The most recent stable version of Emacs is 26.3 now, the most recent version of Chrome OS is 79 now, recent Debian version on Chrome OS 79's Linux enviroment is Strech now.
+What I want is to install the stable version of Emacs on my Chromebook. After all, my Chromebook is on stable channel. The most recent stable version of Emacs is 26.3 now, the most recent version of Chrome OS is 79 now, and the most recent Debian version on Chrome OS 79's Linux enviroment is Strech now.
 
 Install Emacs stable release on Arch Linux is a piece of cake, because Arch linux is a rolling release, you are always up to update.
-Install Emacs on Debian/Ubuntu unstable is also easy, there are lots of prebuild newer version packages you can install directliy. However, As Chrome OS 79, the Crostini Linux enviroment is still at `stretch` , the `oldstable` release, install stable release of Emacs on Chrome OS require some extra work.
+Install Emacs stable on Debian/Ubuntu unstable is also easy, there are prebuild packages you can install directliy. However, As of Chrome OS 79, the Crostini Linux enviroment is still at `stretch` -- the `oldstable` release, the newest package we can install from it is `emacs25`.Install stable release of Emacs on Chrome OS require some extra work.
+
+Why I can't get ease with `emacs25` on Debian stretch is that When I install `evil-mode` via MELPA, I get some error says `undo-tree` can not be installed. It seems it is related to some BUG in Emacs 25, but has been fixed in Emacs 26 -- the stable version now. So Emacs 26 is what I needed.
 
 I spend some time searching for prebuilt stable Emacs (26.3) on Debian oldstable (stretch) on EmacsWiki and Debian sites without lucky, so that means I have to build my Emacs 26.3 myself. There are 3 ways to do this, orderd by recommendations priority.
 
