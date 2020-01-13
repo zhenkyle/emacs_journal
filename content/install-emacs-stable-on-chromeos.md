@@ -16,7 +16,7 @@ I spend some time searching for prebuilt stable Emacs (26.3) on Debian oldstable
 2. use Ubuntu PPA port to Debian method if the version of required is in Ubuntu PPA
 3. build directly from sources
 
-Luckily the Emacs 26.3 is on Debian unstable channel (sid),so I decided to follow this [Guide][1] and do a Simple Backport, after some tweak, I built and installed Emacs 26.3 with success, in case I will needed to do this some other day, there some gotcha to be recorded.
+Because Emacs 26.3, which is what I needed, is on Debian unstable (sid), so I decided to do a Simple Backport Creation, following this [Guide][1]. After some tweak, I built and installed it with success, in case I will needed to do this again, there some gotcha to be remembered.
 
 1. The `rmadison` command is from `packaging-dev`, you can use it to check which version is available in Debian archive.
 
