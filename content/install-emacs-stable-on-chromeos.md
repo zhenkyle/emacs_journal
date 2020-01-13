@@ -5,8 +5,8 @@ date = 2020-01-11T15:00:00Z
 
 What I want is to install the stable version of Emacs on my Chromebook. After all, my Chromebook is on stable channel. The most recent stable version of Emacs is 26.3 now, the most recent version of Chrome OS is 79 now, and the most recent Debian version on Chrome OS 79's Linux enviroment is Strech now.
 
-Install Emacs stable release on Arch Linux is a piece of cake, because Arch linux is a rolling release, you are always up to update.
-Install Emacs stable on Debian/Ubuntu unstable is also easy, there are prebuild packages you can install directliy. However, As of Chrome OS 79, the Crostini Linux enviroment is still at `stretch` -- the `oldstable` release, the newest package we can install from it is `emacs25`.Install stable release of Emacs on Chrome OS require some extra work.
+Install Emacs stable release on a rolling release Linux like Arch linux is a piece of cake, because you are always up to update.
+Install Emacs stable on Debian/Ubuntu unstable is also easy, there are prebuild 26.3 version you can install directliy. However, As of Chrome OS 79, the Crostini Linux enviroment is still at `stretch` -- the `oldstable` release, the newest package we can install is `emacs25`. Install stable release of Emacs on Chrome OS require some extra work.
 
 Why I can't get ease with `emacs25` on Debian Stretch is that When I install `evil-mode` via MELPA, I get some error saying `undo-tree` can not be installed. It seems like it is related to some BUG in Emacs 25, but has been fixed in Emacs 26 which is the stable version now. So Emacs 26 is what I needed.
 
