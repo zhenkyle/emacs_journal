@@ -1,6 +1,6 @@
 +++
 title = "Evil Mode"
-date = 2020-01-10
+date = 2020-01-10T09:00:00Z
 +++
 
 As an Emacs beginner, I would like to learn Emacs's key bindings while change to vim's key bindings occasionally when I get stuck. So this is my settings for now, when I have deeper understanding of how Emacs & evil-mode works latter, I maybe change this settings for more typing effeciency.
