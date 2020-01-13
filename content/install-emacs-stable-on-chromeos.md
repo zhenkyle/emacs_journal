@@ -16,13 +16,15 @@ I spend some time searching for prebuilt stable Emacs (26.3) on Debian oldstable
 2. use Ubuntu PPA port to Debian method if the version of required is in Ubuntu PPA
 3. build directly from sources
 
-Because Emacs 26.3, which is what I needed, is on Debian unstable (sid), so I decided to do a Simple Backport Creation, following this [Guide][1]. After some tweak, I built and installed it with success, in case I will needed to do this again, there some gotcha to be remembered.
+Because Emacs version 26.3, which is what I needed, is on Debian unstable (sid), so I decided to go with the first method, following the [Simple Backport Creation Guide][1]. After some tweak, I built and installed it with success.
+
+The Debian Simple Backport Guid should be followed exactly, but in case I will needed to do this again, there some gotcha to be remembered.
 
 1. The `rmadison` command is from `packaging-dev`, you can use it to check which version is available in Debian archive.
 
-1. Before started, uninstall all packages whose name begin with `emacs` and `emacsen` witch `apt purge`\, if you install old version of emacs before.
+2. Before started, uninstall all packages whose name begin with `emacs` and `emacsen` with `apt purge`, if you installed old version of Emacs before.
 
-2. In order to download emacs source form `sid`, you need to add these lines to your `source.list`
+2. In order to download Emacs source form `sid`, you need to add these lines to your `source.list`
     ```
     deb http://deb.debian.org/debian sid main non-free
     deb-src http://deb.debian.org/debian sid main non-free
@@ -35,11 +37,11 @@ Because Emacs 26.3, which is what I needed, is on Debian unstable (sid), so I de
     ```
     apt source -t sid emacs
     ```
-    After that and before building, delete these lines form your `source.list` and do `apt update` again. This is important, or else you will build your emacs on wrong debian version. Remember we want to build Emacs on Strech version.
+    After that and before building, delete these lines form your `source.list` and do `apt update` again. This is important, or else you will build your emacs on wrong debian version. Remember we want to build Emacs on Strech.
     
 3. `fakeroot debian/rules binary` require a lot time, it can be safely skipped.
 
-4. In my enviroment, I need `emacsen-common` package to sucessful install `emacs`, and also need `emacs-common-non-dfsg` for Emacs Info document, which is from `non-free` channel.
+4. In my enviroment, I need `emacsen-common` to sucessful install `emacs`, and also need `emacs-common-non-dfsg` for Emacs Info document, which is from `non-free` channel.
 
 5. To install a deb file under current path, you need to prefix it with `./`
 
@@ -49,8 +51,7 @@ apt install ./emacs_*_*.deb ./emacs-common_*_*.deb \
 ./emacs-bin-common_*_*.deb ./emacs-gtk_*_*.deb
 ```
 
-
-7. Backup these deb files to some place, you can reinstall it someday without rebuild
+7. Backup these deb files to some place, you can reinstall them someday without rebuild
 
 8. In order to make text bigger, add `sommeiler -X --dpi=175` to `/usr/share/application/emacs.desktop`'s `Exe` section.
 
