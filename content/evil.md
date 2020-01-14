@@ -14,14 +14,13 @@ Install `evil` package from MELPA. See the [official documentation][1] for insta
 # Basic Usage
 The goal is to enable Evil Mode, but set default state to `emacs` state.
 
-TODO: Using Customize to set evil-default-state
+Goto menubar: `Option` - `Customize Emacs` - `Specific Option` (or use `M-x customize-option`) to set `evil-mode` to `on` and set `evil-default-state` to `emacs`. 
 
-Add these lines to your Emacs's `init.el`.
+This will add following two lines to your Emacs's `init.el`.
 ```
 ;; below (custom-set-variables
  '(evil-default-state (quote emacs))
-;; Enable Evil
-(evil-mode 1)
+ '(evil-mode t)
 ```
 
 Now when I need goto `evil` state, I can press `C-z` to change to evil state and then happily using vim's key bindings. Another `C-z` will change state back to `emacs`.
