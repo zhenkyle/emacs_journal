@@ -1,5 +1,5 @@
 +++
-title = "Change Color"
+title = "Change color"
 date = 2020-01-10T15:00:00Z
 +++
 
