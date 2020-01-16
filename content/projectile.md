@@ -8,7 +8,7 @@ date = 2020-01-16T15:00:00Z
 # Overview
 
 Project means a groups of files together, especially code, accroding to the [EmacsWiki CategoryProject][3] page. Different project management libraries have different views of projects. As far as I know, a project will always have a root directory in which contains all project files.
-There are many Projectile alternatives,including CEDET, which seem like came out earlier and more advanced, I haven't tried it yet. EmacsWiki recommends it is probably not useful to use more both of them at the same time, for the same project. So I decided to try Projectile first.
+There are many Projectile alternatives,including CEDET, which seem like came out earlier and more advanced, but I haven't tried it yet. EmacsWiki recommends it is probably not useful to use both of them at the same time, for the same project. So I decided to try Projectile first.
 
 My basic understanding of project management came from Sublime text. The feature I wanted most is the ability to goto anything in a project very quickly and search anything very quickly. The following post recorded how I do it in Projectile' way.
 
