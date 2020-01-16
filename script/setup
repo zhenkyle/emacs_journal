@@ -11,6 +11,7 @@ script/bootstrap
 
 
 if [ -f "config.toml" ]; then
+    (git submodule update --init)
     (zola build)
     echo "==> App is now ready to go! do 'zola serve' to see output."
 fi
