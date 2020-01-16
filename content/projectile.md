@@ -3,9 +3,12 @@ title = "Projectile"
 date = 2020-01-16T15:00:00Z
 +++
 
-Projectile is a popular project interaction library for Emacs. Here is it's [home page][1], and [documents][2].
+[Projectile][1] is a popular project interaction library for Emacs. Here is official [documentation][2].
 
-Project means a groups of files together, especially code. Accroding to [this EmacsWiki page][3], different project management libraries have different views of projects. There are a lot of Projectile alternatives, for example CEDET, which seem like buildin in Emacs, I haven't tried yet. EmacsWiki recommends it is probably not useful to use more than one of these at the same time, for the same project. So after a little research I decided to try Projectile first.
+#Features
+
+Project means a groups of files together, especially code, accroding to the [EmacsWiki CategoryProject][3] page. Different project management libraries have different views of projects. As far as I know, a project will always have a root directory in which contains all project files.
+There are many Projectile alternatives,including CEDET, which seem like came out earlier and more advanced, I haven't tried it yet. EmacsWiki recommends it is probably not useful to use more both of them at the same time, for the same project. So I decided to try Projectile first.
 
 # Install
 
@@ -20,8 +23,8 @@ Note:
 1. the first line enables projectile mode, it is the same as `projectile-global-mode` but the latter is deprecated.
 2. The second line defines `Super - p` as projectile keymap prefixes, but I can't use Super key in Emacs on Gnome Desktop, which seems like blocked by Gnome. So I can only use `C-c p` defined in the third line.
 3. the last line change projectile's completion system from the default `ido` to `helm`, of course `helm` package also need to be insalled.
-4. There is another [`helm-projectile` package][4] writen by the same author offering some more intergration with `helm`, but I dicided not to install it right now, course it seems like less maintained and offers no new features. [Here][5] is an indepth post explained how `helm-projectile` works, it is recommended to read before you try.
-# 
+4. There is another [`helm-projectile` package][4] writen by the same author offering some more intergration with `helm`, but I decided not to install it right now, course it seems like less maintained and offers no new features. [Here][5] is an indepth post explained how `helm-projectile` works, it is recommended to read before you try.
+
 
 # Basic Usage
 
