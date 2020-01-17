@@ -3,52 +3,83 @@ title = "Projectile"
 date = 2020-01-16T15:00:00Z
 +++
 
-[Projectile][1] is a popular project interaction library for Emacs. Here is official [documentation][2].
+[Projectile][1] is a popular project interaction library for Emacs. Here is it's official [documentation][2].
 
 # Overview
 
-Project means a groups of files together, especially code, accroding to the [EmacsWiki CategoryProject][3] page. Different project management libraries have different views of projects. As far as I know, a project will always have a root directory in which contains all project files.
-There are many Projectile alternatives,including CEDET, which seem like came out earlier and more advanced, but I haven't tried it yet. EmacsWiki recommends it is probably not useful to use both of them at the same time, for the same project. So I decided to try Projectile first.
+Project means a groups of files together, especially code, accroding to the [EmacsWiki CategoryProject][3] page. 
+Different project management libraries have different views of projects. 
+As far as I know, a project will always have a root directory in which contains all project files.
+There are many Projectile alternatives,including CEDET, which seem like came out earlier and more advanced, 
+but I haven't tried it yet. 
+EmacsWiki recommends it is probably not useful to use both of them at the same time, for the same project. 
+So I decided to try Projectile first.
 
-My basic understanding of project management came from Sublime text. The feature I wanted most is the ability to goto anything in a project very quickly and search anything very quickly. The following post recorded how I do it in Projectile' way.
+My basic understanding of project management came from Sublime text. 
+The feature I wanted most is the ability to goto anything in a project very quickly and search anything very quickly.
+Let's see how to install and use Projectile with these two questions in mind.
 
 # Install
 
-Install `projectile` package from MELPA. Add the following lines to your `init.el` is good enough to go.
+Install `projectile` package from MELPA. Add the following lines to your `init.el` is good enough for me to go.
 ```
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (setq projectile-completion-system 'helm)
 ```
-Note:
-1. the first line enables projectile mode, it is the same as `projectile-global-mode` but the latter is deprecated.
-2. The second line defines `Super - p` as projectile keymap prefixes, but I can't use Super key in Emacs on Gnome Desktop, which seems like blocked by Gnome. So I can only use `C-c p` defined in the third line.
-3. the last line change projectile's completion system from the default `ido` to `helm`, of course `helm` package also need to be insalled.
-4. There is another [`helm-projectile` package][4] writen by the same author offering some more intergration with `helm`, but I decided not to install it right now, course it seems like less maintained and offers no new features. [Here][5] is an indepth post explained how `helm-projectile` works, it is recommended to read before you try.
 
+Note:
+1. the first line enables Projectile mode, it is the same as `projectile-global-mode` but the latter is deprecated.
+2. The second line defines `s-p` as Projectile's keymap prefix, `s` means `Super` key here. Although I can't use `Super` key on my Arch Linux Gnome desktop, because `Super` key is  blocked by Gnome, I can use `Super` on my Chrome book, so I leave this line there.
+3. the third line defines `C-c p` as Projectile's keymap prefix, it can be used in both my Arch Linux box and my Chrome book.
+4. the last line change projectile's completion system from the default `ido` to `helm`, of course I happened have `helm` package insalled. `helm` is easy to configure for basic usage, but that's another story for another time.
+
+    Enable `helm` as completion system is different than install [`helm-projectile` package][4]. The latter which is also writen by Projectile's author offers a second level of intergration with `helm`, but I decided not to install it right now, becourse it seems like less maintained by the author and will add complexity. This [indepth post][5] explained how `helm-projectile` works, it should be readed before you try.
 
 # Basic Usage
 
-You can use `C-c p ?` or `C-c p C-h` to show Projectile keys or use `M-x` following `projectile` to see all Projectile commands.
+Getting key bindings help with `C-c p ?` or `C-c p C-h`.
+
+Execute `M-x` following `projectile-` to see all Projectile commands.
 
 ## Project
 
-Projectile automatic detect projects -- a collections of files within a root directory, with out any configuration. If this failed, you can also add a `.projectile` as a project marker in the root directory to force it to be detected as a project.
+A project is a basically folder, Projectile automatic detect projects, without any configuration.
 
-* Add a project to project list
-    visit any file or directory, projectile can detect project automaticly, or you can make a project by the `.projectile` project marker.
-* Delete project in project list
-    `M-x projectile-remove-known-project` can clear a selected project
-	`M-x projectile-clear-known-projects` can clear the project list
+* Add a project to projects list
+
+    Every time we open a file, Projectile detect if it is inside a project using a set of practical rules, if a new project is recongnized, Projectile will add it to it's projects list.
+	
+	If the automatic detection fails, you can also add a `.projectile` project marker into the root directory to force the folder to be detected as a project.
+
+* Delete a project in projects list
+
+    When the projects list goes too larger, I'd like to remove unused project in it.
+	
+    `M-x projectile-remove-known-project` can remove a selected project.
+	
+	`M-x projectile-clear-known-projects` can clear the project list.
+
 * Switch project
-    `C-c p p` Switch project
+
+    `C-c p p` Switch project and execute `projectile-find-file` by default.
+
 * Show projects in project list
-    `C-c p p` Switch project, use this to see projects in project list
+    
+	`C-c p p` is also a convenice way to show  projects in the project list.
 
-## TODO: File
+## File
 
-## TODO: Grep
+`C-c p f` or `M-x projectile-find-file` go to any files in current project. This is what I expected the most.
+Try it, it is very pleasant to use.
+
+## Grep
+
+`C-c p s g` or `M-x projectile-grep` find any thing in all files in current project. Try it now, it is very easy to use. The problem is that it is not increasement searching which is not cool. But it is reliable and very fast -- because it use external `find` and `grep` tools, so I decided to get used to it.
+
+# Conclusion
+I'm happy with my Projectile's settings right now. As time goes by, I may try some more advanced features when I needs it.
 
 
 [1]: https://github.com/bbatsov/projectile
