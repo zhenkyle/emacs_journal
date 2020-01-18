@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Emacs Journal</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class="theme-base-09 ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal"><h1>Emacs Journal</h1></a>
+                            
+                            <p class="lead">My Emacs journal</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="https:&#x2F;&#x2F;github.com&#x2F;zhenkyle&#x2F;emacs_journal">Edit</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="https:&#x2F;&#x2F;travis-ci.org&#x2F;zhenkyle&#x2F;emacs_journal">CI status</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Change color</h1>
+  <span class="post-date">2020-01-10</span>
+  <p>Followed this interesting video blog: <a href="https://www.youtube.com/watch?v=Y8koAgkBEnM">Switching to GNU Emacs</a>, I changed my Emacs's color to <a href="https://draculatheme.com/emacs/">Dracula theme</a>, my Emacs looks more like a morden text editor now.</p>
+<h1 id="what-is-dracula-theme">What is Dracula theme</h1>
+<p>Dracula theme is a dark theme for Emacs.</p>
+<h1 id="install">Install</h1>
+<p>Install <code>dracula-theme</code> from MELPA</p>
+<h2 id="using-customize-to-change-theme">Using Customize to change theme</h2>
+<p>Goto menubar: <code>Options</code> - <code>Customize Emacs</code> - <code>Customize Theme</code>, select <code>dracula</code> theme ,then click <code>Save Theme Settings</code>.</p>
+<p>This will add the following line to you <code>init.el</code>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">;; under (custom-set-variables
+ &#39;(custom-enabled-themes (quote (dracula)))
+</span></pre><h2 id="another-way-to-change-theme">Another way to change theme</h2>
+<p>Another way to change theme is manually add the following line to your <code>init.el</code>:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">(load-theme &#39;dracula t)
+</span></pre><h1 id="tweak-emacs">Tweak Emacs</h1>
+<p>As I learned from <a href="https://www.youtube.com/watch?v=Y8koAgkBEnM">Switching to GNU Emacs</a>, I can further tweak Emacs to have a more professional look.</p>
+<h2 id="add-relative-line-numbers">Add Relative Line numbers</h2>
+<p>Goto menubar <code>Options</code> - <code>Show/Hide</code> - <code>Line Number for All Lines</code>, check <code>Relative Line Numbers</code>.</p>
+<p>To make above option persistent, you must click menubar <code>Options</code> - <code>Save Options (Save options set from menu above)</code>, this will add following two lines to your <code>init.el</code>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">;; under (custom-set-variables
+ &#39;(evil-default-state (quote emacs))
+ &#39;(global-display-line-numbers-mode t)
+</span></pre><h2 id="hide-toolbar">Hide toolbar</h2>
+<p>Click menubar <code>Options</code>-<code>Show/Hide</code>-<code>Tool bar</code>- <code>None</code>.</p>
+<p>Click menubar <code>Options</code> - <code>Save Options (Save options set from menu above)</code> to make it persistent.</p>
+<p>To tun on toolbar temporarily, use <code>M-x tool-bar-mode</code>.</p>
+<h2 id="hide-scorllbar">Hide scorllbar</h2>
+<p>Click menubar <code>Options</code>-<code>Show/Hide</code>-<code>Scroll bar</code>- <code>No Vertical Scroll Bar</code>, and save options.</p>
+<p>To tun on scrollbar temporarily, use <code>M-x scroll-bar-mode</code>.</p>
+<h2 id="hide-menubar">Hide menubar</h2>
+<p>Click menubar <code>Options</code>-<code>Show/Hide</code>-<code>Menu Bar</code>, and save options.</p>
+<p>To tun on menubar temporarily, use <code>M-x menu-bar-mode</code>.</p>
+<h1 id="todo-tweak-fonts">TODO: tweak fonts</h1>
+<p>After apply <code>Dracula theme</code>, The fonts in my setting is not exactly like the screenshot in <code>Dracula theme</code>'s home page. How to change fonts? Are there any recommendations?</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

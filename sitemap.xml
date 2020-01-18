@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+        <url>
+            <loc>https://zhenkyle.github.io/emacs_journal/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://zhenkyle.github.io/emacs_journal/color/</loc>
+            
+                <lastmod>2020-01-10T15:00:00Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://zhenkyle.github.io/emacs_journal/evil/</loc>
+            
+                <lastmod>2020-01-10T09:00:00Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://zhenkyle.github.io/emacs_journal/install-emacs-stable-on-chromeos/</loc>
+            
+                <lastmod>2020-01-11T15:00:00Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://zhenkyle.github.io/emacs_journal/projectile/</loc>
+            
+                <lastmod>2020-01-16T15:00:00Z</lastmod>
+            
+        </url>
+    
+</urlset>

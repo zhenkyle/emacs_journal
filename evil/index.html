@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Emacs Journal</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class="theme-base-09 ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal"><h1>Emacs Journal</h1></a>
+                            
+                            <p class="lead">My Emacs journal</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="https:&#x2F;&#x2F;github.com&#x2F;zhenkyle&#x2F;emacs_journal">Edit</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="https:&#x2F;&#x2F;travis-ci.org&#x2F;zhenkyle&#x2F;emacs_journal">CI status</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Evil Mode</h1>
+  <span class="post-date">2020-01-10</span>
+  <p>As an Emacs beginner, I would like to learn Emacs's key bindings while change to vim's key bindings occasionally when I get stuck. So this is my settings for now, when I have deeper understanding of how Emacs &amp; evil-mode works latter, I maybe change this settings for more typing effeciency.</p>
+<h1 id="what-is-evil-mode">What is Evil Mode</h1>
+<p>Evil Mode is the extensible vi layer for Emacs. If you already known vim's key bindings, you would likely want to try it in Emacs. Home Page is <a href="https://github.com/emacs-evil/evil">Here</a>.</p>
+<h1 id="install-evil-mode">Install Evil Mode</h1>
+<p>Install <code>evil</code> package from MELPA. See the <a href="https://evil.readthedocs.io/en/latest/overview.html#installation-via-package-el">official documentation</a> for installation instructions. </p>
+<h1 id="basic-usage">Basic Usage</h1>
+<p>The goal is to enable Evil Mode, but set default state to <code>emacs</code> state.</p>
+<p>Goto menubar: <code>Option</code> - <code>Customize Emacs</code> - <code>Specific Option</code> (or use <code>M-x customize-option</code>) to set <code>evil-mode</code> to <code>on</code> and set <code>evil-default-state</code> to <code>emacs</code>. </p>
+<p>This will add following two lines to your Emacs's <code>init.el</code>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">;; below (custom-set-variables
+ &#39;(evil-default-state (quote emacs))
+ &#39;(evil-mode t)
+</span></pre>
+<p>Now when I need goto <code>evil</code> state, I can press <code>C-z</code> to change to evil state and then happily using vim's key bindings. Another <code>C-z</code> will change state back to <code>emacs</code>.</p>
+<h1 id="todo-how-to-show-evil-state-in-powerline">TODO: How to show evil state in powerline?</h1>
+<p>I have customized my emacs interface with powerline with basic setup. the evil-mode state didn't show up. How can improve this?</p>
+<h1 id="todo-what-are-other-key-bindings-evil-mode-generated-besides-c-z">TODO: What are other key bindings evil-mode generated besides <code>C-z</code>?</h1>
+<p><code>C-h k C-z</code> gives me <code>C-z</code> is bounded to <code>evil-exit-emacs-state</code> command, what are other key bindings?</p>
+<h1 id="todo-try-evil-mode-somewhere-else-other-than-editing">TODO: Try evil-mode somewhere else other than editing</h1>
+<p>Evil-Mode can be used elsewhere other than editing, like <code>Dired</code>, <code>Org-Mode</code> etc., apparently a lot of work of remapping key bindings will be needed. How to do that in an elegant way? </p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

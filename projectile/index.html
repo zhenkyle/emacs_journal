@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Emacs Journal</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class="theme-base-09 ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal"><h1>Emacs Journal</h1></a>
+                            
+                            <p class="lead">My Emacs journal</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="https:&#x2F;&#x2F;github.com&#x2F;zhenkyle&#x2F;emacs_journal">Edit</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="https:&#x2F;&#x2F;travis-ci.org&#x2F;zhenkyle&#x2F;emacs_journal">CI status</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Projectile</h1>
+  <span class="post-date">2020-01-16</span>
+  <p><a href="https://github.com/bbatsov/projectile">Projectile</a> is a popular project interaction library for Emacs. Here is it's official <a href="https://www.projectile.mx/">documentation</a>.</p>
+<h1 id="overview">Overview</h1>
+<p>Project means a groups of files together, especially code, accroding to the <a href="https://www.emacswiki.org/emacs/CategoryProject">EmacsWiki CategoryProject</a> page. 
+Different project management libraries have different views of projects. 
+As far as I know, a project will always have a root directory in which contains all project files.
+There are many Projectile alternatives,including CEDET, which seem like came out earlier and more advanced, 
+but I haven't tried it yet. 
+EmacsWiki recommends it is probably not useful to use both of them at the same time, for the same project. 
+So I decided to try Projectile first.</p>
+<p>My basic understanding of project management came from Sublime text. 
+The feature I wanted most is the ability to goto anything in a project very quickly and search anything very quickly.
+Let's see how to install and use Projectile with these two questions in mind.</p>
+<h1 id="install">Install</h1>
+<p>Install <code>projectile</code> package from MELPA. Add the following lines to your <code>init.el</code> is good enough for me to go.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">(projectile-mode +1)
+(define-key projectile-mode-map (kbd &quot;s-p&quot;) &#39;projectile-command-map)
+(define-key projectile-mode-map (kbd &quot;C-c p&quot;) &#39;projectile-command-map)
+(setq projectile-completion-system &#39;helm)
+</span></pre>
+<p>Note:</p>
+<ol>
+<li>
+<p>the first line enables Projectile mode, it is the same as <code>projectile-global-mode</code> but the latter is deprecated.</p>
+</li>
+<li>
+<p>The second line defines <code>s-p</code> as Projectile's keymap prefix, <code>s</code> means <code>Super</code> key here.</p>
+</li>
+<li>
+<p>the third line defines another keymap prefx <code>C-c p</code>, in case of you don't have a usable <code>Super</code> key.</p>
+</li>
+<li>
+<p>the last line change projectile's completion system from the default <code>ido</code> to <code>helm</code>, of course I happened have <code>helm</code> package insalled. <code>helm</code> is easy to configure for basic usage, but that's another story for another time.</p>
+<p>Enable <code>helm</code> as completion system is different than install the <a href="https://github.com/bbatsov/helm-projectile">helm-projectile</a> package. The latter which is also writen by Projectile's author offers a second level of intergration with <code>helm</code>, but I decided not to install it right now, becourse it seems like less maintained by the author and will add complexity. This <a href="https://tuhdo.github.io/helm-projectile.html">indepth post</a> explained how <code>helm-projectile</code> works, it should be readed before you try.</p>
+</li>
+</ol>
+<h2 id="enable-s-p-key-bindings-on-gnome-desktop">Enable <code>s-p</code> key bindings on Gnome desktop</h2>
+<p>I can use <code>s-p</code> on my Chrome book without any problem, the <code>Super</code> key on Chrome book is the magnifying glass key, however I can't use <code>s-p</code> key bindings on my Arch Linux Gnome desktop, because <code>Super</code>+<code>p</code> key is alread taken by Gnome.</p>
+<p>After found <a href="https://askubuntu.com/questions/68463/how-to-disable-global-super-p-shortcut">this post</a>, I realized <code>Super + p</code> is bounded to &quot;Switch monitor&quot; in Gnome. Go in the dconf-editor via the command &quot;dconf-editor&quot; in a terminal, then go at:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">/org/gnome/mutter/keybindings/switch-monitor
+</span></pre>
+<p>and disable &quot;use default value&quot; and delete:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&#39;&lt;Super&gt;p&#39;,
+</span></pre>
+<p>give me back <code>s-p</code> key in Emacs.</p>
+<h1 id="basic-usage">Basic Usage</h1>
+<p>Getting key bindings help with <code>C-c p ?</code> or <code>C-c p C-h</code>.</p>
+<p>Execute <code>M-x</code> following <code>projectile-</code> to see all Projectile commands.</p>
+<h2 id="project">Project</h2>
+<p>A project is a basically folder, Projectile automatic detect projects, without any configuration.</p>
+<ul>
+<li>
+<p>Add a project to projects list</p>
+<p>Every time we open a file, Projectile detect if it is inside a project using a set of practical rules, if a new project is recongnized, Projectile will add it to it's projects list.</p>
+<p>If the automatic detection fails, you can also add a <code>.projectile</code> project marker into the root directory to force the folder to be detected as a project.</p>
+</li>
+<li>
+<p>Delete a project in projects list</p>
+<p>When the projects list goes too larger, I'd like to remove unused project in it.</p>
+<p><code>M-x projectile-remove-known-project</code> can remove a selected project.</p>
+<p><code>M-x projectile-clear-known-projects</code> can clear the project list.</p>
+</li>
+<li>
+<p>Switch project</p>
+<p><code>C-c p p</code> Switch project and execute <code>projectile-find-file</code> by default.</p>
+</li>
+<li>
+<p>Show projects in project list</p>
+<p><code>C-c p p</code> is also a convenice way to show  projects in the project list.</p>
+</li>
+</ul>
+<h2 id="file">File</h2>
+<p><code>C-c p f</code> or <code>M-x projectile-find-file</code> go to any files in current project. This is what I expected the most.
+Try it, it is very pleasant to use.</p>
+<h2 id="grep">Grep</h2>
+<p><code>C-c p s g</code> or <code>M-x projectile-grep</code> find any thing in all files in current project. Try it now, it is very easy to use. The problem is that it is not increasement searching which is not cool. But it is reliable and very fast -- because it use external <code>find</code> and <code>grep</code> tools, so I decided to get used to it.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>I'm happy with my Projectile's settings right now. As time goes by, I may try some more advanced features when I needs it.</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

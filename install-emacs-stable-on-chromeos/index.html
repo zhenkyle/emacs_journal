@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Emacs Journal</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal&#x2F;print.css" media="print">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal&#x2F;poole.css">
+      <link rel="stylesheet" href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal&#x2F;hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class="theme-base-09 ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;zhenkyle.github.io&#x2F;emacs_journal"><h1>Emacs Journal</h1></a>
+                            
+                            <p class="lead">My Emacs journal</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="https:&#x2F;&#x2F;github.com&#x2F;zhenkyle&#x2F;emacs_journal">Edit</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="https:&#x2F;&#x2F;travis-ci.org&#x2F;zhenkyle&#x2F;emacs_journal">CI status</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Install Emacs stable release on Chrome OS</h1>
+  <span class="post-date">2020-01-11</span>
+  <p>What I want is to install the stable version of Emacs on my Chromebook. After all, my Chromebook is on stable channel. The most recent stable version of Emacs is 26.3 now, the most recent version of Chrome OS is 79 now, and the most recent Debian version on Chrome OS 79's Linux enviroment is Strech now.</p>
+<p>Install Emacs stable release on a rolling release Linux like Arch linux is a piece of cake, because you are always up to update.
+Install Emacs stable on Debian/Ubuntu unstable is also easy, there are prebuild 26.3 version you can install directliy. 
+However, As of Chrome OS 79, the Crostini Linux enviroment is still at <code>stretch</code> -- the <code>oldstable</code> release, the newest package we can get is <code>emacs25</code>. Install Emacs stable on Chrome OS require extra works.</p>
+<p>Why I can't get ease with <code>emacs25</code> on Debian Stretch is that When I install <code>evil-mode</code> via MELPA, I get some error saying <code>undo-tree</code> can not be installed. It seems like it is related to some BUG in Emacs 25, but has been fixed in Emacs 26 which is the stable version now. So Emacs 26 is what I needed.</p>
+<p>The first thing I tried is install Emacs 26.3 via flatpak, although I can get emcas26 up and runinng, I can't do any useful thing with it, the <code>m-x term</code> is a shell inside flatpak container, which is not I want. I think install Emcas in container is the wrong way. So what I have to do is to install it as a normal application.</p>
+<p>I spend some time searching for prebuilt Emacs stable (26.3) packages for Debian stretch (oldstable) on EmacsWiki and Debian sites without lucky, so that means I have to build my Emacs 26.3 myself. There are 3 ways to do this, orderd by recommendations priority.</p>
+<ol>
+<li>
+<p>use Debian backport method if the version of software required is in newer version of Debian
+Debian Wiki says this way won't mess up with your package system.</p>
+</li>
+<li>
+<p>use Ubuntu PPA port to Debian method if the version of required is in Ubuntu PPA</p>
+</li>
+<li>
+<p>build directly from sources</p>
+</li>
+</ol>
+<p>Because Emacs version 26.3, which is what I needed, is on Debian unstable (sid), so I decided to go with the first method, following the <a href="https://wiki.debian.org/SimpleBackportCreation">Simple Backport Creation Guide</a>. After some tweak, I built and installed it with success.</p>
+<p>The Debian Simple Backport Guid should be followed exactly, but in case I will needed to do this again, there some gotcha to be remembered.</p>
+<ol>
+<li>
+<p>The <code>rmadison</code> command is from <code>packaging-dev</code>, you can use it to check which version is available in Debian archive.</p>
+</li>
+<li>
+<p>Before started, uninstall all packages whose name begin with <code>emacs</code> and <code>emacsen</code> with <code>apt purge</code>, if you installed old version of Emacs before.</p>
+</li>
+<li>
+<p>In order to download Emacs source form <code>sid</code>, you need to add these lines to your <code>source.list</code></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">deb http://deb.debian.org/debian sid main non-free
+</span><span style="color:#c0c5ce;">deb-src http://deb.debian.org/debian sid main non-free
+</span></pre>
+<p>Only add the second line will not will. Then do</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">apt update
+</span></pre>
+<p>And then download source with </p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">apt source -t sid emacs
+</span></pre>
+<p>After that and before building, delete these lines form your <code>source.list</code> and do <code>apt update</code> again. This is important, or else you will build your emacs on wrong debian version. Remember we want to build Emacs on Strech.</p>
+</li>
+<li>
+<p><code>fakeroot debian/rules binary</code> require a lot time, it can be safely skipped.</p>
+</li>
+<li>
+<p>In my enviroment, I need <code>emacsen-common</code> to sucessful install <code>emacs</code>, and also need <code>emacs-common-non-dfsg</code> for Emacs Info document, which is from <code>non-free</code> channel.</p>
+</li>
+<li>
+<p>To install a deb file under current path, you need to prefix it with <code>./</code></p>
+</li>
+<li>
+<p>I need to specify all deb files in order to successful install, which is</p>
+</li>
+</ol>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">apt install ./emacs_*_*.deb ./emacs-common_*_*.deb \
+./emacs-bin-common_*_*.deb ./emacs-gtk_*_*.deb
+</span></pre>
+<ol start="7">
+<li>
+<p>Backup these deb files to some place, you can reinstall them someday without rebuild</p>
+</li>
+<li>
+<p>In order to make text bigger, add <code>sommeiler -X --dpi=175</code> to <code>/usr/share/application/emacs.desktop</code>'s <code>Exe</code> section.</p>
+</li>
+<li>
+<p>In order to see all fonts in Emacs Hello file with <code>C-h h</code>, I need to install these fonts</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">apt install -t stretch-backport fonts-noto fonts-noto-cjk
+</span></pre>
+<p>Note: strech-backport channel's fonts is newer than strech channel's.</p>
+</li>
+</ol>
+<p>After all these steps, I can happily play with emacs stable release on my Chromebook now :-)</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>
