@@ -7,7 +7,17 @@ set -e
 
 cd "$(dirname "$0")/.."
 
-if [ "$(uname -s)" = "Linux" ] && [ -f "/etc/arch-release" ] || [ -f "/etc/debian_version" ]; then
+if [ "$(uname -s)" = "Linux" ] && [ -f "/etc/arch-release" ]; then
+
+  # Install if needed
+  which zola >/dev/null 2>&1  || {
+    echo "==> Installing Dependencie"
+    which git >/dev/null 2>&1 || {
+	sudo pacman -S git
+    }
+    mkdir vendor && cd "vendor" && git clone https://aur.archlinux.org/zola-bin.git && cd "zola-bin" && makepkg -si --noconfirm && cd "../.."
+  }
+elif [ "$(uname -s)" = "Linux" ] && [ -f "/etc/debian_version" ]; then
 
   # Install if needed
   which zola >/dev/null 2>&1  || {
