@@ -31,11 +31,25 @@ Install `projectile` package from MELPA. Add the following lines to your `init.e
 
 Note:
 1. the first line enables Projectile mode, it is the same as `projectile-global-mode` but the latter is deprecated.
-2. The second line defines `s-p` as Projectile's keymap prefix, `s` means `Super` key here. Although I can't use `Super` key on my Arch Linux Gnome desktop, because `Super` key is  blocked by Gnome, I can use `Super` on my Chrome book, so I leave this line there.
-3. the third line defines `C-c p` as Projectile's keymap prefix, it can be used in both my Arch Linux box and my Chrome book.
+2. The second line defines `s-p` as Projectile's keymap prefix, `s` means `Super` key here.
+3. the third line defines another keymap prefx `C-c p`, in case of you don't have a usable `Super` key.
 4. the last line change projectile's completion system from the default `ido` to `helm`, of course I happened have `helm` package insalled. `helm` is easy to configure for basic usage, but that's another story for another time.
 
     Enable `helm` as completion system is different than install the [helm-projectile][4] package. The latter which is also writen by Projectile's author offers a second level of intergration with `helm`, but I decided not to install it right now, becourse it seems like less maintained by the author and will add complexity. This [indepth post][5] explained how `helm-projectile` works, it should be readed before you try.
+
+## Enable `s-p` key bindings on Gnome desktop
+
+I can use `s-p` on my Chrome book without any problem, the `Super` key on Chrome book is the magnifying glass key, however I can't use `s-p` key bindings on my Arch Linux Gnome desktop, because `Super`+`p` key is alread taken by Gnome.
+
+After found [this post][6], I realized `Super + p` is bounded to "Switch monitor" in Gnome. Go in the dconf-editor via the command "dconf-editor" in a terminal, then go at:
+```
+/org/gnome/mutter/keybindings/switch-monitor
+```
+and disable "use default value" and delete:
+```
+'<Super>p',
+```
+give me back `s-p` key in Emacs.
 
 # Basic Usage
 
@@ -87,3 +101,4 @@ I'm happy with my Projectile's settings right now. As time goes by, I may try so
 [3]: https://www.emacswiki.org/emacs/CategoryProject
 [4]: https://github.com/bbatsov/helm-projectile
 [5]: https://tuhdo.github.io/helm-projectile.html
+[6]: https://askubuntu.com/questions/68463/how-to-disable-global-super-p-shortcut
